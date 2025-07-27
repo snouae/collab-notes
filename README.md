@@ -401,7 +401,4 @@ flake8 app/
 - [ ] Authentication works
 - [ ] Data validation works
 
----
-
-**Built with modern web technologies for collaborative note-taking**
 
