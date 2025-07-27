@@ -32,7 +32,3 @@ def read_root():
         "version": settings.VERSION,
         "docs": "/docs"
     }
-
-@app.get("/health")
-def health_check():
-    return {"status": "healthy"} 
