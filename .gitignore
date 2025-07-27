@@ -1,0 +1,190 @@
+# CollabNotes - Root .gitignore
+# This file covers the entire project structure
+
+# ===== DOCKER =====
+# Docker volumes and data
+docker-data/
+postgres-data/
+*.env
+
+# ===== OPERATING SYSTEM =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ===== EDITORS & IDEs =====
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===== LOGS =====
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===== TEMPORARY FILES =====
+# Temporary folders
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ===== SECURITY =====
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ===== BACKUP FILES =====
+*.bak
+*.backup
+*.old
+*.orig
+
+# ===== PROJECT SPECIFIC =====
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Upload directories
+uploads/
+media/
+staticfiles/
+
+# Build artifacts
+dist/
+build/
+out/
+
+# ===== DEVELOPMENT =====
+# Coverage reports
+coverage/
+.nyc_output
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# ===== PACKAGE MANAGERS =====
+# npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ===== DOCKER COMPOSE =====
+# Docker Compose override files (keep main docker-compose.yml)
+docker-compose.override.yml
+docker-compose.*.yml
+!docker-compose.yml
+
+# ===== GIT =====
+# Git hooks (if any)
+.git/hooks/
+
+# ===== CLEANUP SCRIPTS =====
+# Keep the cleanup script but ignore any generated files
+cleanup-*.log
+clean-docker.sh 

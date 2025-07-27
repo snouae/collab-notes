@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: collabnotes-db
+    environment:
+      POSTGRES_DB: collabnotes
+      POSTGRES_USER: collabnotes_user
+      POSTGRES_PASSWORD: collabnotes_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U collabnotes_user -d collabnotes"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: collabnotes-api
+    environment:
+      - DATABASE_URL=postgresql://collabnotes_user:collabnotes_password@postgres:5432/collabnotes
+      - SECRET_KEY=your-super-secret-key-change-in-production-123456789
+      - DEBUG=True
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: always
+    volumes:
+      - ./backend:/app
+    command: >
+      python main.py
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: collabnotes-web
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    restart: always
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data: 
